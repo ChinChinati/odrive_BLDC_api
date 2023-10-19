@@ -27,6 +27,10 @@ odrv.hall_encoder0.config.enabled = True
 odrv.axis0.config.load_encoder = EncoderId.HALL_ENCODER0
 odrv.axis0.config.commutation_encoder = EncoderId.HALL_ENCODER0
 
+# setting PID gains
+odrv.axis0.controller.config.vel_gain = 0.01
+odrv.axis0.controller.config.vel_integrator_gain = 0.03
+
 
 def connect():
     odrv.clear_errors
@@ -63,7 +67,7 @@ def stop():
 
 connect()
 run()
-time.sleep(10)
+time.sleep(30)
 stop()
 
 
